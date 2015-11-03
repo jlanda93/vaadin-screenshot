@@ -79,7 +79,7 @@ Screenshot is written by Mark Thomas
 
 ## Getting started
 
-For an example, see src/test/java/org/vaadin/template/demo/DemoUI.java
+For an example, see screenshot-demo/src/main/java/org/vaadin/addons/screenshot/demo/DemoUI.java
 
 ## Features
 
