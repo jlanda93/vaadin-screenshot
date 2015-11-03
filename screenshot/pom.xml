@@ -5,7 +5,7 @@
     <groupId>org.vaadin.addons</groupId>
     <artifactId>screenshot</artifactId>
     <packaging>jar</packaging>
-    <version>0.4.1-SNAPSHOT</version>
+    <version>0.4.1</version>
     <name>Screenshot Add-on</name>
 
     <properties>

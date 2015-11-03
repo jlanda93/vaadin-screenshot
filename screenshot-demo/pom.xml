@@ -5,7 +5,7 @@
     <groupId>org.vaadin.addons</groupId>
     <artifactId>screenshot-demo</artifactId>
     <packaging>war</packaging>
-    <version>0.4.1-SNAPSHOT</version>
+    <version>0.4.1</version>
     <name>Screenshot Add-on Demo</name>
 
     <properties>

@@ -2,10 +2,6 @@
 
 Screenshot is an UI component add-on for Vaadin 7.
 
-## Online demo
-
-Try the add-on demo at <url of the online demo>
-
 ## Download release
 
 Official releases of this add-on are available at Vaadin Directory. For Maven instructions, download and reviews, go to http://vaadin.com/addon/screenshot
@@ -51,15 +47,13 @@ Another way of debugging client-side is superdev mode. To enable it, uncomment d
 
 ## Release notes
 
-### Version 0.4.1-SNAPSHOT
-- ...
-- ...
+### Version 0.4.1
+- Initial release supporting html2canvas 0.4.1
 
 ## Roadmap
 
 This component is developed as a hobby with no public roadmap or any guarantees of upcoming releases. That said, the following features are planned for upcoming releases:
-- ...
-- ...
+- Support html2canvas 0.5.x when it is released
 
 ## Issue tracking
 
@@ -79,32 +73,18 @@ Contributions are welcome, but there are no guarantees that they are accepted as
 
 Add-on is distributed under Apache License 2.0. For license terms, see LICENSE.txt.
 
-Screenshot is written by <...>
+Screenshot is written by Mark Thomas
 
 # Developer Guide
 
 ## Getting started
 
-Here is a simple example on how to try out the add-on component:
-
-<...>
-
-For a more comprehensive example, see src/test/java/org/vaadin/template/demo/DemoUI.java
+For an example, see src/test/java/org/vaadin/template/demo/DemoUI.java
 
 ## Features
 
-### Feature A
+### Take Screenshot
 
-<...>
+Uses html2canvas to take a snapshot of the DOM as a HTML5 Canvas then returns the image as a data URL to the server where it is then
+parse and base64-decoded into the image's raw bytes.
 
-### Feature B
-
-<...>
-
-### Feature C
-
-<...>
-
-## API
-
-Screenshot JavaDoc is available online at <...>
