@@ -6,7 +6,7 @@
     <artifactId>screenshot-root</artifactId>
     <packaging>pom</packaging>
     <version>0.4.1</version>
-    <name>Screenshot Add-on Root Project</name>
+    <name>Html2Canvas Screenshot Root Project</name>
 
     <modules>
         <module>screenshot</module>

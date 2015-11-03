@@ -6,7 +6,7 @@
     <artifactId>screenshot</artifactId>
     <packaging>jar</packaging>
     <version>0.4.1</version>
-    <name>Screenshot Add-on</name>
+    <name>Html2Canvas Screenshot</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

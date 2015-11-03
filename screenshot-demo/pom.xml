@@ -6,7 +6,7 @@
     <artifactId>screenshot-demo</artifactId>
     <packaging>war</packaging>
     <version>0.4.1</version>
-    <name>Screenshot Add-on Demo</name>
+    <name>Html2Canvas Screenshot Demo</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,7 +24,7 @@
         <url>git://github.com/mygithubaccount/Screenshot.git</url>
         <connection>scm:git:git://github.com/mygithubaccount/Screenshot.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:/mygithubaccount/${ComponentClassName}.git</developerConnection>
-        <tag>Screenshot add-on for Vaadin</tag>
+        <tag>Html2Canvas Screenshot for Vaadin</tag>
     </scm>
 
     <issueManagement>

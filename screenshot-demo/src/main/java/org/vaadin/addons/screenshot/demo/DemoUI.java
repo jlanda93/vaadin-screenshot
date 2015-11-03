@@ -20,7 +20,7 @@ import org.vaadin.addons.screenshot.ScreenshotImage;
 import org.vaadin.addons.screenshot.ScreenshotListener;
 
 @Theme("demo")
-@Title("Screenshot Add-on Demo")
+@Title("Html2Canvas Screenshot Demo")
 @SuppressWarnings("serial")
 public class DemoUI extends UI
 {
