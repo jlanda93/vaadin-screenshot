@@ -9,6 +9,7 @@ package org.vaadin.addons.screenshot;
 
 import com.vaadin.annotations.JavaScript;
 import com.vaadin.ui.AbstractComponent;
+import com.vaadin.ui.Component;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -24,13 +25,14 @@ import org.vaadin.addons.screenshot.client.ScreenshotState;
 @JavaScript({"html2canvas.js"})
 public class Screenshot extends AbstractComponent {
 
-    private static final long serialVersionUID = -3233575989179942876L;
+	private static final long serialVersionUID = 1L;
 
-    private final transient Set<ScreenshotListener> listeners = new HashSet<ScreenshotListener>();
+	private final transient Set<ScreenshotListener> listeners = new HashSet<ScreenshotListener>();
 
     public Screenshot() {
         this.registerRpc(new ScreenshotServerRpc() {
-            @Override
+			private static final long serialVersionUID = 1L;
+			@Override
             public void screenshotResult(String dataURL) {
                 Screenshot.this.parseAndNotify(dataURL);
             }
@@ -53,6 +55,7 @@ public class Screenshot extends AbstractComponent {
         this.getState().screenshotWidth = builder.width;
         this.getState().useCORS = builder.useCORS;
         this.getState().mimeType = builder.mimeType.getMimeType();
+        this.getState().targetComponent = builder.targetComponent;
     }
 
     public void addScreenshotListener(ScreenshotListener listener) {
@@ -142,6 +145,14 @@ public class Screenshot extends AbstractComponent {
         return this.getState().useCORS;
     }
 
+    public void setTargetComponent(Component component) {
+    	getState().targetComponent = component;
+    }
+    
+    public Component getTargetComponent() {
+    	return (Component) getState().targetComponent;
+    }
+    
     public ScreenshotMimeType getMimeType() {
         return ScreenshotMimeType.fromMimeType(this.getState().mimeType);
     }
@@ -159,6 +170,7 @@ public class Screenshot extends AbstractComponent {
         private int width;
         private boolean useCORS;
         private ScreenshotMimeType mimeType = ScreenshotMimeType.PNG;
+        private Component targetComponent;
 
         private Builder() {
         }
@@ -216,6 +228,11 @@ public class Screenshot extends AbstractComponent {
         public Builder withMimeType(ScreenshotMimeType mimeType) {
             this.mimeType = mimeType;
             return this;
+        }
+        
+        public Builder ofTargetComponent(Component target) {
+        	this.targetComponent = target;
+        	return this;
         }
 
         public Screenshot build() {

@@ -7,6 +7,10 @@
 
 package org.vaadin.addons.screenshot.client;
 
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.dom.client.Document;
+import com.vaadin.client.ComponentConnector;
 import com.vaadin.client.communication.RpcProxy;
 import com.vaadin.client.communication.StateChangeEvent;
 import com.vaadin.client.ui.AbstractComponentConnector;
@@ -23,21 +27,27 @@ public class ScreenshotConnector extends AbstractComponentConnector {
 
     public ScreenshotConnector() {
         this.registerRpc(ScreenshotClientRpc.class, new ScreenshotClientRpc() {
-            @Override
+			private static final long serialVersionUID = 1L;
+			@Override
             public void screenshot() {
-                ScreenshotConnector.this.takeScreenshot(ScreenshotConnector.this, ScreenshotConnector.this.getState());
+                ScreenshotConnector.this.takeScreenshot(ScreenshotConnector.this, ScreenshotConnector.this.getState(), getTargetElement());
             }
         });
     }
 
     @Override
+	protected ScreenshotWidget createWidget() {
+    	return GWT.create(ScreenshotWidget.class);
+	}
+
+	@Override
     public ScreenshotWidget getWidget() {
-        return (ScreenshotWidget)super.getWidget();
+        return (ScreenshotWidget) super.getWidget();
     }
 
     @Override
     public ScreenshotState getState() {
-        return (ScreenshotState)super.getState();
+        return (ScreenshotState) super.getState();
     }
 
     @Override
@@ -45,7 +55,7 @@ public class ScreenshotConnector extends AbstractComponentConnector {
         super.onStateChanged(stateChangeEvent);
     }
 
-    private final native void takeScreenshot(ScreenshotConnector widget, ScreenshotState state) /*-{
+    private final native void takeScreenshot(ScreenshotConnector widget, ScreenshotState state, JavaScriptObject target) /*-{
         try {
             var options = {
                 allowTaint: state.allowTaint,
@@ -73,11 +83,20 @@ public class ScreenshotConnector extends AbstractComponentConnector {
             if (state.timeout> 0) {
                 options.timeout = state.timeout;
             }
-            $wnd.html2canvas($wnd.document.body, options);
+            $wnd.html2canvas(target, options);
         } catch (e) {
             console.log(e);
         }
     }-*/;
+    
+    private JavaScriptObject getTargetElement() {
+    	if(getState().targetComponent != null && getState().targetComponent instanceof ComponentConnector) {
+    		ComponentConnector targetConnector = (ComponentConnector) getState().targetComponent;
+    		return targetConnector.getWidget().getElement();
+    	} else {
+    		return Document.get().getBody();
+    	}
+    }
 
     private void setResult(String dataURL) {
         this.rpc.screenshotResult(dataURL);

@@ -12,6 +12,7 @@ import com.vaadin.ui.Image;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.Button.ClickEvent;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -54,8 +55,29 @@ public class DemoUI extends UI
         });
         layout.addComponent(button);
         layout.setComponentAlignment(button, Alignment.TOP_CENTER);
+        
+        
+        
+        final Button button2 = new Button("An screenshot of me!");
+    	final Screenshot targetScreenshot = new Screenshot();
+    	targetScreenshot.addScreenshotListener(new ScreenshotListener() {
+            public void screenshotComplete(ScreenshotImage image) {
+                showImageInWindow(image);
+            }
+        });
+    	targetScreenshot.setTargetComponent(button2);
+    	button2.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				targetScreenshot.takeScreenshot();
+			}
+		});
+    	layout.addComponent(targetScreenshot);
+        
+    	layout.addComponent(button2);
+    	layout.setComponentAlignment(button2, Alignment.TOP_CENTER);
+    	
         setContent(layout);
-
     }
 
     private void showImageInWindow(ScreenshotImage image) {
