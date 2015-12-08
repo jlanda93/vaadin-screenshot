@@ -30,7 +30,8 @@ public class ScreenshotConnector extends AbstractComponentConnector {
             private static final long serialVersionUID = 1L;
             @Override
             public void screenshot() {
-                ScreenshotConnector.this.takeScreenshot(ScreenshotConnector.this, ScreenshotConnector.this.getState(), getTargetElement());
+                ScreenshotConnector.this.takeScreenshot(ScreenshotConnector.this, ScreenshotConnector.this.getState(),
+                  getTargetElement());
             }
         });
     }
@@ -42,12 +43,12 @@ public class ScreenshotConnector extends AbstractComponentConnector {
 
     @Override
     public ScreenshotWidget getWidget() {
-        return (ScreenshotWidget) super.getWidget();
+        return (ScreenshotWidget)super.getWidget();
     }
 
     @Override
     public ScreenshotState getState() {
-        return (ScreenshotState) super.getState();
+        return (ScreenshotState)super.getState();
     }
 
     @Override
@@ -90,8 +91,8 @@ public class ScreenshotConnector extends AbstractComponentConnector {
     }-*/;
 
     private JavaScriptObject getTargetElement() {
-        if(getState().targetComponent != null && getState().targetComponent instanceof ComponentConnector) {
-            ComponentConnector targetConnector = (ComponentConnector) getState().targetComponent;
+        if (getState().targetComponent != null && getState().targetComponent instanceof ComponentConnector) {
+            ComponentConnector targetConnector = (ComponentConnector)getState().targetComponent;
             return targetConnector.getWidget().getElement();
         } else {
             return Document.get().getBody();

@@ -102,7 +102,7 @@ public class Screenshot extends AbstractComponent {
     // We must override getState() to cast the state to ScreenshotState
     @Override
     protected ScreenshotState getState() {
-        return (ScreenshotState) super.getState();
+        return (ScreenshotState)super.getState();
     }
 
     public boolean isAllowTaint() {

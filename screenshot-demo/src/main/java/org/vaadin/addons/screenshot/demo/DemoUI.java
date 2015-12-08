@@ -23,8 +23,7 @@ import org.vaadin.addons.screenshot.ScreenshotListener;
 @Theme("demo")
 @Title("Html2Canvas Screenshot Demo")
 @SuppressWarnings("serial")
-public class DemoUI extends UI
-{
+public class DemoUI extends UI {
 
     @WebServlet(value = "/*", asyncSupported = true)
     @VaadinServletConfiguration(productionMode = false, ui = DemoUI.class, widgetset = "org.vaadin.addons.screenshot.demo.DemoWidgetSet")
@@ -55,8 +54,6 @@ public class DemoUI extends UI
         });
         layout.addComponent(button);
         layout.setComponentAlignment(button, Alignment.TOP_CENTER);
-
-
 
         final Button button2 = new Button("An screenshot of me!");
         final Screenshot targetScreenshot = new Screenshot();
