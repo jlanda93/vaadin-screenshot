@@ -55,7 +55,7 @@ public class DemoUI extends UI {
         layout.addComponent(button);
         layout.setComponentAlignment(button, Alignment.TOP_CENTER);
 
-        final Button button2 = new Button("An screenshot of me!");
+        final Button button2 = new Button("A screenshot of me!");
         final Screenshot targetScreenshot = new Screenshot();
         targetScreenshot.addScreenshotListener(new ScreenshotListener() {
             public void screenshotComplete(ScreenshotImage image) {
