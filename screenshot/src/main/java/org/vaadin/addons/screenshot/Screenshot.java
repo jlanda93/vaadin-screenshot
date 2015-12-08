@@ -25,14 +25,14 @@ import org.vaadin.addons.screenshot.client.ScreenshotState;
 @JavaScript({"html2canvas.js"})
 public class Screenshot extends AbstractComponent {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private final transient Set<ScreenshotListener> listeners = new HashSet<ScreenshotListener>();
+    private final transient Set<ScreenshotListener> listeners = new HashSet<ScreenshotListener>();
 
     public Screenshot() {
         this.registerRpc(new ScreenshotServerRpc() {
-			private static final long serialVersionUID = 1L;
-			@Override
+            private static final long serialVersionUID = 1L;
+            @Override
             public void screenshotResult(String dataURL) {
                 Screenshot.this.parseAndNotify(dataURL);
             }
@@ -146,13 +146,13 @@ public class Screenshot extends AbstractComponent {
     }
 
     public void setTargetComponent(Component component) {
-    	getState().targetComponent = component;
+        getState().targetComponent = component;
     }
-    
+
     public Component getTargetComponent() {
-    	return (Component) getState().targetComponent;
+        return (Component) getState().targetComponent;
     }
-    
+
     public ScreenshotMimeType getMimeType() {
         return ScreenshotMimeType.fromMimeType(this.getState().mimeType);
     }
@@ -229,10 +229,10 @@ public class Screenshot extends AbstractComponent {
             this.mimeType = mimeType;
             return this;
         }
-        
+
         public Builder ofTargetComponent(Component target) {
-        	this.targetComponent = target;
-        	return this;
+            this.targetComponent = target;
+            return this;
         }
 
         public Screenshot build() {

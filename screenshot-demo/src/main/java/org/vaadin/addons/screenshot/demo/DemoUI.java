@@ -55,28 +55,28 @@ public class DemoUI extends UI
         });
         layout.addComponent(button);
         layout.setComponentAlignment(button, Alignment.TOP_CENTER);
-        
-        
-        
+
+
+
         final Button button2 = new Button("An screenshot of me!");
-    	final Screenshot targetScreenshot = new Screenshot();
-    	targetScreenshot.addScreenshotListener(new ScreenshotListener() {
+        final Screenshot targetScreenshot = new Screenshot();
+        targetScreenshot.addScreenshotListener(new ScreenshotListener() {
             public void screenshotComplete(ScreenshotImage image) {
                 showImageInWindow(image);
             }
         });
-    	targetScreenshot.setTargetComponent(button2);
-    	button2.addClickListener(new Button.ClickListener() {
-			@Override
-			public void buttonClick(ClickEvent event) {
-				targetScreenshot.takeScreenshot();
-			}
-		});
-    	layout.addComponent(targetScreenshot);
-        
-    	layout.addComponent(button2);
-    	layout.setComponentAlignment(button2, Alignment.TOP_CENTER);
-    	
+        targetScreenshot.setTargetComponent(button2);
+        button2.addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(ClickEvent event) {
+                targetScreenshot.takeScreenshot();
+            }
+        });
+        layout.addComponent(targetScreenshot);
+
+        layout.addComponent(button2);
+        layout.setComponentAlignment(button2, Alignment.TOP_CENTER);
+
         setContent(layout);
     }
 

@@ -27,8 +27,8 @@ public class ScreenshotConnector extends AbstractComponentConnector {
 
     public ScreenshotConnector() {
         this.registerRpc(ScreenshotClientRpc.class, new ScreenshotClientRpc() {
-			private static final long serialVersionUID = 1L;
-			@Override
+            private static final long serialVersionUID = 1L;
+            @Override
             public void screenshot() {
                 ScreenshotConnector.this.takeScreenshot(ScreenshotConnector.this, ScreenshotConnector.this.getState(), getTargetElement());
             }
@@ -36,11 +36,11 @@ public class ScreenshotConnector extends AbstractComponentConnector {
     }
 
     @Override
-	protected ScreenshotWidget createWidget() {
-    	return GWT.create(ScreenshotWidget.class);
-	}
+    protected ScreenshotWidget createWidget() {
+        return GWT.create(ScreenshotWidget.class);
+    }
 
-	@Override
+    @Override
     public ScreenshotWidget getWidget() {
         return (ScreenshotWidget) super.getWidget();
     }
@@ -88,14 +88,14 @@ public class ScreenshotConnector extends AbstractComponentConnector {
             console.log(e);
         }
     }-*/;
-    
+
     private JavaScriptObject getTargetElement() {
-    	if(getState().targetComponent != null && getState().targetComponent instanceof ComponentConnector) {
-    		ComponentConnector targetConnector = (ComponentConnector) getState().targetComponent;
-    		return targetConnector.getWidget().getElement();
-    	} else {
-    		return Document.get().getBody();
-    	}
+        if(getState().targetComponent != null && getState().targetComponent instanceof ComponentConnector) {
+            ComponentConnector targetConnector = (ComponentConnector) getState().targetComponent;
+            return targetConnector.getWidget().getElement();
+        } else {
+            return Document.get().getBody();
+        }
     }
 
     private void setResult(String dataURL) {
