@@ -8,10 +8,13 @@
 package org.vaadin.addons.screenshot.client;
 
 import com.vaadin.shared.AbstractComponentState;
+import com.vaadin.shared.Connector;
 
 public class ScreenshotState extends AbstractComponentState {
 
-    /**
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Whether to allow cross-origin images to taint the canvas
      */
     public boolean allowTaint;
@@ -65,5 +68,10 @@ public class ScreenshotState extends AbstractComponentState {
      * Mime type of image data URL
      */
     public String mimeType = "image/png";
+    
+    /**
+     * Take the screenshot of an specific component insted the Browser's document
+     */
+    public Connector targetComponent;
 
 }
