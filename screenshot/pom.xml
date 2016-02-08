@@ -5,7 +5,7 @@
     <groupId>org.vaadin.addons</groupId>
     <artifactId>screenshot</artifactId>
     <packaging>jar</packaging>
-    <version>0.4.1.1</version>
+    <version>0.4.1.2</version>
     <name>Html2Canvas Screenshot</name>
 
     <properties>
@@ -221,6 +221,9 @@
             </resource>
             <resource>
                 <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>rebel.xml</exclude>
+                </excludes>
             </resource>
         </resources>
 

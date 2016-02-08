@@ -5,7 +5,7 @@
     <groupId>org.vaadin.addons</groupId>
     <artifactId>screenshot-demo</artifactId>
     <packaging>war</packaging>
-    <version>0.4.1.1</version>
+    <version>0.4.1.2</version>
     <name>Html2Canvas Screenshot Demo</name>
 
     <properties>
