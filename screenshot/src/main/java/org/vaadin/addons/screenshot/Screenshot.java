@@ -39,7 +39,6 @@ public class Screenshot extends AbstractComponent {
         });
         this.setWidth("0px");
         this.setHeight("0px");
-        this.setImmediate(true);
     }
 
     private Screenshot(Builder builder) {
